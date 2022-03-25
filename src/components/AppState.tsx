@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useReducer } from 'react';
 
-interface CartItem {
+export interface CartItem {
 	name: string;
 	price: number;
 	id: number;
@@ -87,7 +87,7 @@ const AppStateProvider: React.FC = ({ children }) => {
 	useEffect(() => {
 		window.localStorage.setItem('cart', JSON.stringify(state.cart));
 	}, [state.cart]);
-    
+
 	return (
 		<AppStateContext.Provider value={state}>
 			<AppDispatchContext.Provider value={dispatch}>{children}</AppDispatchContext.Provider>
